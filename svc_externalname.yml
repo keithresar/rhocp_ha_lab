@@ -1,7 +1,0 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: yahoo
-spec:
-  type: ExternalName
-  externalName: yahoo.com

@@ -17,9 +17,9 @@ openshift_enable_unsupported_configurations=True
 openshift_deployment_type=openshift-enterprise
 containerized=false
 openshift_master_cluster_method=native
-openshift_master_cluster_hostname=loadbalancer1.8081.internal
-openshift_master_cluster_public_hostname=loadbalancer.8081.example.opentlc.com
-openshift_master_default_subdomain=apps.8081.example.opentlc.com
+openshift_master_cluster_hostname=loadbalancer1.GUID.internal
+openshift_master_cluster_public_hostname=loadbalancer.GUID.example.opentlc.com
+openshift_master_default_subdomain=apps.GUID.example.opentlc.com
 openshift_router_selector='env=infra'
 openshift_hosted_infra_selector='env=infra'
 openshift_hosted_registry_storage_nfs_directory=/srv/nfs
@@ -83,42 +83,42 @@ nfs
 #glusterfs
 
 [lb]
-loadbalancer1.8081.internal
+loadbalancer1.GUID.internal
 
 [masters]
-#master1.8081.internal
-master2.8081.internal
-master3.8081.internal
+#master1.GUID.internal
+master2.GUID.internal
+master3.GUID.internal
 
 [etcd]
-#master1.8081.internal
-master2.8081.internal
-master3.8081.internal
+#master1.GUID.internal
+master2.GUID.internal
+master3.GUID.internal
 
 [nodes]
 ## These are the masters
-#master1.8081.internal openshift_hostname=master1.8081.internal  openshift_node_labels="{'env': 'master', 'cluster': '8081'}"
-master2.8081.internal openshift_hostname=master2.8081.internal  openshift_node_labels="{'env': 'master', 'cluster': '8081'}"
-master3.8081.internal openshift_hostname=master3.8081.internal  openshift_node_labels="{'env': 'master', 'cluster': '8081'}"
+#master1.GUID.internal openshift_hostname=master1.GUID.internal  openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
+master2.GUID.internal openshift_hostname=master2.GUID.internal  openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
+master3.GUID.internal openshift_hostname=master3.GUID.internal  openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
 
 ## These are infranodes
-infranode1.8081.internal openshift_hostname=infranode1.8081.internal  openshift_node_labels="{'env':'infra', 'cluster': '8081'}"
-infranode2.8081.internal openshift_hostname=infranode2.8081.internal  openshift_node_labels="{'env':'infra', 'cluster': '8081'}"
+infranode1.GUID.internal openshift_hostname=infranode1.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
+infranode2.GUID.internal openshift_hostname=infranode2.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
 
 ## These are regular nodes
-node1.8081.internal openshift_hostname=node1.8081.internal  openshift_node_labels="{'env':'app', 'cluster': '8081'}"
-node2.8081.internal openshift_hostname=node2.8081.internal  openshift_node_labels="{'env':'app', 'cluster': '8081'}"
-node3.8081.internal openshift_hostname=node3.8081.internal  openshift_node_labels="{'env':'app', 'cluster': '8081'}"
+node1.GUID.internal openshift_hostname=node1.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node2.GUID.internal openshift_hostname=node2.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node3.GUID.internal openshift_hostname=node3.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
 
 ## These are CNS nodes
-# support1.8081.internal openshift_hostname=support1.8081.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '8081'}"
-# support2.8081.internal openshift_hostname=support2.8081.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '8081'}"
-# support3.8081.internal openshift_hostname=support3.8081.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': '8081'}"
+# support1.GUID.internal openshift_hostname=support1.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
+# support2.GUID.internal openshift_hostname=support2.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
+# support3.GUID.internal openshift_hostname=support3.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
 
 [nfs]
-support1.8081.internal openshift_hostname=support1.8081.internal
+support1.GUID.internal openshift_hostname=support1.GUID.internal
 
 #[glusterfs]
-# support1.8081.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support2.8081.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support3.8081.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support1.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support2.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
+# support3.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'

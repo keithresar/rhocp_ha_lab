@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -n "Enter GUID: > "
-read $guid
+read guid
 
 cp resources/hosts.tpl /tmp/hosts.tmp
 perl -p -i -e "s/GUID/$guid/g" /tmp/hosts.tmp

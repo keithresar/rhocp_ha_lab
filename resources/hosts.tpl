@@ -7,7 +7,7 @@ timeout=60
 ansible_become=yes
 
 # disable memory check, as we are not a production environment
-openshift_disable_check="memory_availability"
+openshift_disable_check="memory_availability,disk_availability"
 
 # Set this line to enable NFS
 openshift_enable_unsupported_configurations=True

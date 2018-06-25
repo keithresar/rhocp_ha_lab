@@ -80,45 +80,35 @@ masters
 etcd
 nodes
 nfs
-#glusterfs
 
 [lb]
-loadbalancer1.GUID.internal
+loadbalancer1.example.com
 
 [masters]
-#master1.GUID.internal
-master2.GUID.internal
-master3.GUID.internal
+master1.example.com
+master2.example.com
+master3.example.com
 
 [etcd]
-#master1.GUID.internal
-master2.GUID.internal
-master3.GUID.internal
+master1.example.com
+master2.example.com
+master3.example.com
 
 [nodes]
 ## These are the masters
-#master1.GUID.internal openshift_hostname=master1.GUID.internal  openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
-master2.GUID.internal openshift_hostname=master2.GUID.internal  openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
-master3.GUID.internal openshift_hostname=master3.GUID.internal  openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
+master1.example.com openshift_hostname=master1.example.com openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
+master2.example.com openshift_hostname=master2.example.com openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
+master3.example.com openshift_hostname=master3.example.com openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
 
 ## These are infranodes
-infranode1.GUID.internal openshift_hostname=infranode1.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
-infranode2.GUID.internal openshift_hostname=infranode2.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
+#infranode1.GUID.internal openshift_hostname=infranode1.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
+#infranode2.GUID.internal openshift_hostname=infranode2.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
 
 ## These are regular nodes
-node1.GUID.internal openshift_hostname=node1.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
-node2.GUID.internal openshift_hostname=node2.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
-node3.GUID.internal openshift_hostname=node3.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
-
-## These are CNS nodes
-# support1.GUID.internal openshift_hostname=support1.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
-# support2.GUID.internal openshift_hostname=support2.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
-# support3.GUID.internal openshift_hostname=support3.GUID.internal  openshift_node_labels="{'env':'glusterfs', 'cluster': 'GUID'}"
+#node1.GUID.internal openshift_hostname=node1.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+#node2.GUID.internal openshift_hostname=node2.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+#node3.GUID.internal openshift_hostname=node3.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
 
 [nfs]
-support1.GUID.internal openshift_hostname=support1.GUID.internal
+#support1.GUID.internal openshift_hostname=support1.GUID.internal
 
-#[glusterfs]
-# support1.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support2.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'
-# support3.GUID.internal glusterfs_devices='[ "/dev/xvdd" ]'

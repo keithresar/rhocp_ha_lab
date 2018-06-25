@@ -17,17 +17,17 @@ openshift_enable_unsupported_configurations=True
 openshift_deployment_type=openshift-enterprise
 containerized=false
 openshift_master_cluster_method=native
-openshift_master_cluster_hostname=loadbalancer1.GUID.internal
-openshift_master_cluster_public_hostname=loadbalancer.GUID.example.opentlc.com
+openshift_master_cluster_hostname=loadbalancer1.example.com
+openshift_master_cluster_public_hostname=loadbalancer1-GUID.oslab.opentlc.com
 openshift_master_default_subdomain=apps.GUID.example.opentlc.com
 openshift_router_selector='env=infra'
 openshift_hosted_infra_selector='env=infra'
 openshift_hosted_registry_storage_nfs_directory=/srv/nfs
-os_sdn_network_plugin_name=ovs-networkpolicy
+os_sdn_network_plugin_name=redhat/openshift-ovs-networkpolicy
 
 # Auth
 openshift_master_ldap_ca_file=/root/ipa-ca.crt
-openshift_master_identity_providers=[{'name': 'ipa_shared_auth', 'login': 'true', 'challenge': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'mappingMethod': 'claim', 'ca': '/etc/origin/master/ipa-ca.crt', 'bindDN': 'uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com', 'bindPassword': 'r3dh4t1!', 'url': 'ldaps://ipa.shared.example.opentlc.com:636/cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com?uid?sub?(memberOf=cn=ocp-users,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com)', 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']},}]
+openshift_master_identity_providers=[{'name': 'ipa_shared_auth', 'login': 'true', 'challenge': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'mappingMethod': 'claim', 'ca': '/etc/origin/master/ipa-ca.crt', 'bindDN': 'uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com', 'bindPassword': 'r3dh4t1!', 'url': 'ldaps://idm.example.com:636/cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com?uid?sub?(memberOf=cn=ocp-users,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com)', 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']},}]
 #openshift_master_identity_providers=[ 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']}, 'insecure': 'false', 'url': 'ldap://ldap.myorg.com:389/uid=users,dc=myorg,dc=com?uid'}]
 
 

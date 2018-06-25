@@ -5,7 +5,6 @@
 ###########################################################################
 timeout=60
 ansible_become=yes
-ansible_ssh_user=ec2-user
 
 # disable memory check, as we are not a production environment
 openshift_disable_check="memory_availability"
@@ -19,16 +18,16 @@ containerized=false
 openshift_master_cluster_method=native
 openshift_master_cluster_hostname=loadbalancer1.example.com
 openshift_master_cluster_public_hostname=loadbalancer1-GUID.oslab.opentlc.com
-openshift_master_default_subdomain=apps.GUID.example.opentlc.com
+#openshift_master_default_subdomain=apps.GUID.example.opentlc.com
+openshift_master_default_subdomain=*.apps.GUID.example.opentlc.com
 openshift_router_selector='env=infra'
 openshift_hosted_infra_selector='env=infra'
 openshift_hosted_registry_storage_nfs_directory=/srv/nfs
 os_sdn_network_plugin_name=redhat/openshift-ovs-networkpolicy
 
 # Auth
-openshift_master_ldap_ca_file=/root/ipa-ca.crt
-openshift_master_identity_providers=[{'name': 'ipa_shared_auth', 'login': 'true', 'challenge': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'mappingMethod': 'claim', 'ca': '/etc/origin/master/ipa-ca.crt', 'bindDN': 'uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com', 'bindPassword': 'r3dh4t1!', 'url': 'ldaps://idm.example.com:636/cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com?uid?sub?(memberOf=cn=ocp-users,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com)', 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']},}]
-#openshift_master_identity_providers=[ 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']}, 'insecure': 'false', 'url': 'ldap://ldap.myorg.com:389/uid=users,dc=myorg,dc=com?uid'}]
+#openshift_master_ldap_ca_file=/root/ipa-ca.crt
+#openshift_master_identity_providers=[{'name': 'ipa_shared_auth', 'login': 'true', 'challenge': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'mappingMethod': 'claim', 'ca': '/etc/origin/master/ipa-ca.crt', 'bindDN': 'uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com', 'bindPassword': 'r3dh4t1!', 'url': 'ldaps://idm.example.com:636/cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com?uid?sub?(memberOf=cn=ocp-users,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com)', 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']},}]
 
 
 # Logging
@@ -101,14 +100,18 @@ master2.example.com openshift_hostname=master2.example.com openshift_node_labels
 master3.example.com openshift_hostname=master3.example.com openshift_node_labels="{'env': 'master', 'cluster': 'GUID'}"
 
 ## These are infranodes
-#infranode1.GUID.internal openshift_hostname=infranode1.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
-#infranode2.GUID.internal openshift_hostname=infranode2.GUID.internal  openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
+infranode1.example.com openshift_hostname=infranode1.example.com openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
+infranode2.example.com openshift_hostname=infranode2.example.com openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
+infranode3.example.com openshift_hostname=infranode3.example.com openshift_node_labels="{'env':'infra', 'cluster': 'GUID'}"
 
 ## These are regular nodes
-#node1.GUID.internal openshift_hostname=node1.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
-#node2.GUID.internal openshift_hostname=node2.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
-#node3.GUID.internal openshift_hostname=node3.GUID.internal  openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node1.example.com openshift_hostname=node1.example.com openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node2.example.com openshift_hostname=node2.example.com openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node3.example.com openshift_hostname=node3.example.com openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node4.example.com openshift_hostname=node4.example.com openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node5.example.com openshift_hostname=node5.example.com openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
+node6.example.com openshift_hostname=node6.example.com openshift_node_labels="{'env':'app', 'cluster': 'GUID'}"
 
 [nfs]
-#support1.GUID.internal openshift_hostname=support1.GUID.internal
+oselab.example.com openshift_hostname=oselab.example.com
 
